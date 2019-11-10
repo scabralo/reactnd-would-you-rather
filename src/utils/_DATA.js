@@ -119,7 +119,15 @@ function generateUID () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
 
-export function
+export function getInitialData () {
+  return Promise.all([
+    _getUsers(),
+    _getQuestions(),
+  ]).then(([users, questions]) => ({
+    users,
+    questions,
+  }))
+}
 
 export function _getUsers () {
   return new Promise((res, rej) => {
