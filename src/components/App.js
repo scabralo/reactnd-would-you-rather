@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Login from './Login'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Header from './Header'
 
 class App extends Component {
   componentDidMount() {
@@ -10,15 +12,14 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Would You Rather...?</h1>
-          {console.log(this.props.loading)}
+      <Router>
+        <div className="App">
+          <Header />
           {this.props.loading === true 
             ? "Loading"
             : <Login /> }
-        </header>
-      </div>
+        </div>
+      </Router>
     )
   }
 }
