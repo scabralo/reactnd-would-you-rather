@@ -15,9 +15,6 @@ class Login extends Component {
               {this.props.userIds.map((id) => (
                 <option key={id} value={id}>{id}</option>
               ))}
-              <option>User 1</option>
-              <option>User 2</option>
-              <option>User 3</option>
             </Form.Control>
           </Form.Group>
         </Form>
