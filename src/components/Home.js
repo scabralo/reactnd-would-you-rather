@@ -29,10 +29,10 @@ class Home extends Component {
 
         <Tabs defaultActiveKey="unanswered" id="uncontrolled-tab-example">
           <Tab eventKey="unanswered" title="Unanswered">
-            {newQuestions.map((id) => <Question key={id} id={id} /> )}
+            {newQuestions.map((id) => <Question key={id} id={id} answered={false} /> )}
           </Tab>
           <Tab eventKey="answered" title="Answered">
-            {oldQuestions.map((id) => <Question key={id} id={id} /> )}
+            {oldQuestions.map((id) => <Question key={id} id={id} answered={true} /> )}
           </Tab>
         </Tabs>
       </div>
