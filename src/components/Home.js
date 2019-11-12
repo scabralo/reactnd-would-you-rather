@@ -8,7 +8,7 @@ class Home extends Component {
   
 
   render() {
-    const { users, questions, questionIds, authedUser } = this.props
+    const { questions, questionIds, authedUser } = this.props
 
     if(!authedUser) {
       return <Redirect to='/login' />
