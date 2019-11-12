@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Login from './Login'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './Header'
 import Home from './Home'
 import AddQuestion from './AddQuestion'
@@ -15,13 +15,10 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }
   render() {
-    const { authedUser } = this.props
-
     return (
       <Router>
         <div className="App">
           <Header />
-          {authedUser === null && <Redirect to='/login' />}
           {this.props.loading === true 
             ? null
             : <div>
