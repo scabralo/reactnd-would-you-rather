@@ -1,30 +1,40 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class Question extends Component {
   render() {
-    const { users, authedUser, question, questionId } = this.props
-    const user = users[question.author]
-    // console.log('questionId: ', questionId)
+  // question: questions[questionId] ? questions[questionId] : []
+    const { users, question } = this.props
+
+    if (question === null) {
+      return <p>This Question doesn't exist</p>
+    }
+
+    const { id, author, optionOne } = question
+
     return (
       <div className='question-wrapper'>
-        <div className='user-info-container'>
-          {/* <img src={users[question.author].avatarURL} alt='user avatar' /> */}
-        </div>
-        <div className='question-info-container'></div>
+        <Link to={`/questions/${id}`}>
+          <div className='user-info-container'>
+            <img src={users[author] ? users[author].avatarURL : ''} alt='user avatar' />
+            <p><b>{author}</b></p>
+          </div>
+          <div className='question-info-container'>
+            <h3>Would you rather...</h3>
+            <p>{optionOne.text}, or...</p>
+          </div>
+        </Link>
       </div>
     )
   }
 }
 
-function mapStateToProps({users, authedUser, questions}, props) {
-  const { questionId } = props.questionId
-  console.log('questionId: ', questionId)
+function mapStateToProps({users, authedUser, questions}, {id}) {
   return {
-    users,
+    users : users ? users : [],
     authedUser,
-    questionId,
-    question: questions[questionId] ? questions[questionId] : []
+    question: questions[id] ? questions[id] : []
   }
 }
 
