@@ -1,9 +1,30 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
+import { setAuthedUser } from '../actions/authedUser'
+import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
+  state = {
+    userId: ''
+  }
+  onUserChange = (e) => {
+    const userId = e.target.value
+    this.setState((e) => ({
+      userId
+    }))
+  }
+  submitHandler = (e) => {
+    e.preventDefault()
+    const { userId } = this.state
+
+    this.props.dispatch(setAuthedUser(userId))
+  }
   render() {
+    const { authedUser } = this.props
+
+    if(authedUser) return <Redirect to='/' />
+
     return (
       <div>
         <h2>Welcome!</h2>
@@ -11,11 +32,14 @@ class Login extends Component {
         <Form>
           <Form.Group>
             <Form.Label>Who are you?</Form.Label>
-            <Form.Control as="select">
+            <Form.Control as="select" onChange={this.onUserChange.bind(this)}>
               {this.props.userIds.map((id) => (
                 <option key={id} value={id}>{id}</option>
               ))}
             </Form.Control>
+            <Button variant="primary" type="submit" onClick={this.submitHandler}>
+              Sign In
+            </Button>
           </Form.Group>
         </Form>
       </div>
@@ -23,9 +47,10 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, authedUser }) {
   return {
-    userIds: Object.keys(users)
+    userIds: Object.keys(users),
+    authedUser
   }
 }
 
