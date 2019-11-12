@@ -22,6 +22,7 @@ class Login extends Component {
   }
   render() {
     const { authedUser } = this.props
+    const { userId } =  this.state
 
     if(authedUser) return <Redirect to='/' />
 
@@ -33,11 +34,12 @@ class Login extends Component {
           <Form.Group>
             <Form.Label>Who are you?</Form.Label>
             <Form.Control as="select" onChange={this.onUserChange.bind(this)}>
+              <option key='0' value=''>Select a User</option>
               {this.props.userIds.map((id) => (
                 <option key={id} value={id}>{id}</option>
               ))}
             </Form.Control>
-            <Button variant="primary" type="submit" onClick={this.submitHandler}>
+            <Button variant="primary" type="submit" onClick={this.submitHandler} disabled={userId === ''}>
               Sign In
             </Button>
           </Form.Group>
