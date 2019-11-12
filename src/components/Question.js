@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import UserInfo from './UserInfo'
 
 class Question extends Component {
   render() {
@@ -15,11 +16,14 @@ class Question extends Component {
 
     return (
       <div className='question-wrapper'>
-        <Link to={`/questions/${id}`}>
-          <div className='user-info-container'>
-            <img src={users[author] ? users[author].avatarURL : ''} alt='user avatar' />
-            <p><b>{author}</b></p>
-          </div>
+        <Link to={{ 
+          pathname:`/questions/${id}`,
+          state: { answered: this.props.answered }
+          }}>
+          <UserInfo 
+            avatarURL={users[author] ? users[author].avatarURL : ''}
+            authorName={author} 
+          />
           <div className='question-info-container'>
             <h3>Would you rather...</h3>
             <p>{optionOne.text}, or...</p>
