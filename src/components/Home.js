@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect, Link } from 'react-router-dom'
-import Question from './Question'
+import QuestionsList from './QuestionsList'
 import { Tabs, Tab } from 'react-bootstrap'
 
 class Home extends Component {
@@ -26,13 +26,12 @@ class Home extends Component {
     return (
       <div>
         Home Page
-
         <Tabs defaultActiveKey="unanswered" id="uncontrolled-tab-example">
           <Tab eventKey="unanswered" title="Unanswered">
-            {newQuestions.map((id) => <Question key={id} id={id} answered={false} /> )}
+            <QuestionsList questions={newQuestions} answered={false}/>
           </Tab>
           <Tab eventKey="answered" title="Answered">
-            {oldQuestions.map((id) => <Question key={id} id={id} answered={true} /> )}
+            <QuestionsList questions={oldQuestions} answered={true}/>
           </Tab>
         </Tabs>
       </div>
