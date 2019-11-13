@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import UserInfo from './UserInfo'
-import { Button } from 'react-bootstrap'
+import { Button, Navbar, Nav } from 'react-bootstrap'
 import { logoutAuthedUser } from '../actions/authedUser'
 
-class Nav extends Component {
+class NavMenu extends Component {
 
   logoutHandler = (e) => {
     this.props.dispatch(logoutAuthedUser())
@@ -14,7 +14,18 @@ class Nav extends Component {
     const { authedUser, user } = this.props
 
     return (
+      
       <div>
+        {/* <Navbar bg="light" expand="lg">
+          <Navbar.Brand href={authedUser ? '/' : '#' }>Would You Rather...?</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href={authedUser ? '/' : '#' }>Home</Nav.Link>
+              <Nav.Link href={authedUser ? '/add' : '#'}>Add Question</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar> */}
         <div className='navigation-wrapper'>
           <ul>
             <li><Link to={authedUser ? '/' : '#' }>Home</Link></li>
@@ -41,4 +52,4 @@ function mapStateToProps({ authedUser, users }) {
   }
 }
 
-export default connect(mapStateToProps)(Nav)
+export default connect(mapStateToProps)(NavMenu)
