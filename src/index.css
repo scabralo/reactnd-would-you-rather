@@ -6,8 +6,95 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.App-header {
+  margin-bottom: 1em;
+  padding: 2em 1em 3em;
+}
+header nav.bg-light {
+  background: white !important;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1em !important;
+}
+.user-info-container img {
+  width: 100%;
+  max-width: 5em;
+  margin-top: 1em;
+}
+.question-wrapper a {
+  display: flex;
+  align-items: center;
+  color: darkslategrey;
+}
+.question-wrapper a:hover {
+  color: darkslategrey;
+  text-decoration: none;
+}
+.user-info-container {
+  width: 25%;
+  text-align: center;
+}
+.user-info-container p {
+  margin: 1em 0;
+  text-align: center;
+}
+.question-info-container {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: fit-content;
+}
+.question-wrapper a > div {
+  padding: 0em .5em;
+}
+.navigation-wrapper,
+.user-info-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+.App-header > div {
+  display: flex;
+  justify-content: space-between;
+}
+.App-header .user-info-container {
+  display: flex;
+  width: fit-content;
+  height: 44px;
+  margin-right: 1em;
+  padding-right: 1em;
+  border-right: 1px solid lightgrey;
+}
+.App-header .user-info-container img {
+  height: 100%;
+  width: auto;
+  margin: 0 1em;
+}
+.App-header .user-info-container p {
+  margin: auto;
+}
+.tabs-wrapper {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.nav-tabs {
+  font-size: 1.8em;
+  margin-bottom: -1px;
+}
+.nav-tabs .nav-item {
+  width: 50%;
+  text-align: center;
+  padding: .7em .5em;
+  color: lightgray;
+}
+.list-group button:first-of-type {
+  border-top: none;
 }
