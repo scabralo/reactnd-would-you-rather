@@ -24,8 +24,7 @@ class Home extends Component {
     const newQuestions = questionIds.filter((id) => (!oldQuestions.includes(id)))
 
     return (
-      <div>
-        Home Page
+      <div className='tabs-wrapper'>
         <Tabs defaultActiveKey="unanswered" id="uncontrolled-tab-example">
           <Tab eventKey="unanswered" title="Unanswered">
             <QuestionsList questions={newQuestions} answered={false}/>
