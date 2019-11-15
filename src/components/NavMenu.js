@@ -28,6 +28,9 @@ class NavMenu extends Component {
             <LinkContainer to={authedUser ? '/add' : '#' }>
               <Nav.Link href={authedUser ? '/add' : '#'}>Add Question</Nav.Link>
             </LinkContainer>
+            <LinkContainer to={authedUser ? '/leaders' : '#' }>
+              <Nav.Link href={authedUser ? '/leaders' : '#'}>LeaderBoard</Nav.Link>
+            </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
