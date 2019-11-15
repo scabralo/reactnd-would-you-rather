@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -21,12 +21,12 @@ class App extends Component {
           <Header />
           {this.props.loading === true 
             ? null
-            : <div>
+            : <Fragment>
                 <Route path='/' exact component={Home} />
                 <Route path='/login' component={Login} />
                 <Route path='/add' component={AddQuestion} />
                 <Route path='/questions/:id' component={QuestionDetails} />
-              </div> }
+              </Fragment> }
         </div>
       </Router>
     )
