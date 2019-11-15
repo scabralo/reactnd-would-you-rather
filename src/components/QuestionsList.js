@@ -7,12 +7,14 @@ export default function QuestionsList(props) {
 
   return (
     <ListGroup >
-      {questions.map((id) => (
+      {questions.length > 0 
+      ? questions.map((id) => (
           <ListGroup.Item action  key={id}>
             <Question id={id} answered={answered} />
           </ListGroup.Item>
         )
-      )}
+      )
+    : (<p className='h4'>There are no questions on this Category.</p>)}
     </ListGroup>
   )
 }
