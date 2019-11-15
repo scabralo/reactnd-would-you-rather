@@ -30,6 +30,11 @@ class QuestionDetails extends Component {
       selected
     }))
   }
+  optionDetails = (count, total) => {
+    return(
+      <p><span>{count}</span> out of <span>{total}</span> votes - <span>{(count/total)*100}%</span></p>
+    )
+  }
 
   render() {
     const { authedUser } = this.props
@@ -60,29 +65,8 @@ class QuestionDetails extends Component {
         />
         <div className='question-info-container'>
         {answered === true 
-          ? (
-              <p>Answered</p>
-              /* TODO: 
-               * -Figureout which option was selected, this could be done by 
-               * simple elimination, we check the first one if it isn't the first one
-               * it's immediately the second one.
-               * 
-               * - Show both options but show a special styling/background on the one the user selected.
-               * 
-               * - Show number of votes for both options and percentages that they represent. This could also
-               * be done by calculating one and then deducting the values for the second one.
-              */
-            )
-          : (
-            /* TODO:
-               * - Show both options, these could be toggle buttons so that the use can select one and then submit the selection.
-               * 
-               * - After the user submits we have to make sure the screen gets updated to show the new information.
-               *
-               */
-            <div>
-              <Form onChange={this.onChangeHandler} onSubmit={this.onSubmitHandler}>
-                <Form.Row>
+                {this.optionDetails(optionOneVotesCount, totalVotes)}
+                {this.optionDetails(optionTwoVotesCount, totalVotes)}
                   <fieldset>
                     <Form.Group>
                       <h2>Would You Rather...</h2>
