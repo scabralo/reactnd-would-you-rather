@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import UserInfo from './UserInfo'
@@ -18,10 +18,10 @@ class QuestionDetails extends Component {
 
     dispatch(handleRespondQuestion(question.id, selected))
       .then(() => {
-    this.setState({
-      selected: '',
-      refresh: true
-    })
+        this.setState({
+          selected: '',
+          refresh: true
+        })
       })
   }
   onChangeHandler = (e) => {
@@ -84,34 +84,30 @@ class QuestionDetails extends Component {
             </div>)
           : (<div>
               <Form className='question-details-form' onChange={this.onChangeHandler} onSubmit={this.onSubmitHandler}>
-                  <fieldset>
-                    <Form.Group>
-                      <h2>Would You Rather...</h2>
-                      <Form.Check 
-                        type='radio'
-                        id={'optionOne'}
-                        name="formHorizontalRadios"
-                        label={<p className='h4'>{optionOne.text}</p>}
-                      />
-                      <Form.Check 
-                        type='radio'
-                        id={'optionTwo'}
-                        name="formHorizontalRadios"
-                        label={<p className='h4'>{optionTwo.text}</p>}
-                      />
-                    </Form.Group>
-                    <Button variant="primary" type="submit" onClick={this.submitHandler} disabled={selected === ''}>
+                <fieldset>
+                  <Form.Group>
+                    <h2>Would You Rather...</h2>
+                    <Form.Check 
+                      type='radio'
+                      id={'optionOne'}
+                      name="formHorizontalRadios"
+                      label={<p className='h4'>{optionOne.text}</p>}
+                    />
+                    <Form.Check 
+                      type='radio'
+                      id={'optionTwo'}
+                      name="formHorizontalRadios"
+                      label={<p className='h4'>{optionTwo.text}</p>}
+                    />
+                  </Form.Group>
+                  <Button variant="primary" type="submit" onClick={this.submitHandler} disabled={selected === ''}>
                     Submit Response
-                    </Button>
-                  </fieldset>
-                </Form.Row>
-                
+                  </Button>
+                </fieldset>
               </Form>
             </div>)}
-            </div>
-            )}
         </div>
-      </Fragment>
+      </div>
     )
   }
 }
