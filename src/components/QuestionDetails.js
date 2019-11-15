@@ -95,7 +95,7 @@ class QuestionDetails extends Component {
                       />
                     </Form.Group>
                     <Button variant="primary" type="submit" onClick={this.submitHandler} disabled={selected === ''}>
-                      Sign In
+                    Submit Response
                     </Button>
                   </fieldset>
                 </Form.Row>
