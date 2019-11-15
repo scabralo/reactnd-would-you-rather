@@ -65,8 +65,19 @@ class QuestionDetails extends Component {
         />
         <div className='question-info-container'>
         {answered === true 
+          ? (<div>
+              <h2>Results...</h2>
+              <div className={`optionOne results-data ${previousAnswer === 'optionOne' ? 'selected' : ''}`} >
+                <p className='h4'>{optionOne.text}</p>
                 {this.optionDetails(optionOneVotesCount, totalVotes)}
+              </div>
+              <div className={`optionTwo results-data ${previousAnswer === 'optionTwo' ? 'selected' : ''}`} >
+                <p className='h4'>{optionTwo.text}</p>
                 {this.optionDetails(optionTwoVotesCount, totalVotes)}
+              </div>
+            </div>)
+          : (<div>
+              <Form className='question-details-form' onChange={this.onChangeHandler} onSubmit={this.onSubmitHandler}>
                   <fieldset>
                     <Form.Group>
                       <h2>Would You Rather...</h2>
