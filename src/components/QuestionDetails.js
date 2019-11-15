@@ -58,7 +58,7 @@ class QuestionDetails extends Component {
     const { selected } = this.state
 
     return (
-      <Fragment >
+      <div className='question-details-container'>
         <UserInfo 
           avatarURL={users[author] ? users[author].avatarURL : ''}
           authorName={author} 
@@ -101,6 +101,7 @@ class QuestionDetails extends Component {
                 </Form.Row>
                 
               </Form>
+            </div>)}
             </div>
             )}
         </div>
