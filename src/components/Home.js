@@ -8,7 +8,7 @@ class Home extends Component {
   
 
   render() {
-    const { questions, questionIds, authedUser } = this.props
+    const { questions, questionIds, users, authedUser } = this.props
 
     if(!authedUser) {
       return <Redirect to='/login' />
@@ -17,10 +17,8 @@ class Home extends Component {
     if(questions === null) {
       return <p>There are no questions to show. Create one yourself <Link to='/add'>HERE!</Link></p>
     }
-
-    const oldQuestions = questionIds.filter((id) => (
-      questions[id].optionOne.votes.includes(authedUser) || questions[id].optionTwo.votes.includes(authedUser)
-      ))
+    
+    const oldQuestions = questionIds.filter((id) => ( users[authedUser].answers[id] ))
     const newQuestions = questionIds.filter((id) => (!oldQuestions.includes(id)))
 
     return (
