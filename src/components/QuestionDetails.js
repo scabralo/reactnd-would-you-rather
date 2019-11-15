@@ -17,11 +17,12 @@ class QuestionDetails extends Component {
     const { selected } = this.state
 
     dispatch(handleRespondQuestion(question.id, selected))
-    
+      .then(() => {
     this.setState({
       selected: '',
       refresh: true
     })
+      })
   }
   onChangeHandler = (e) => {
     const selected = e.target.id
