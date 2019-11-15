@@ -51,9 +51,9 @@ h1 {
   flex-direction: column;
   justify-content: center;
   height: fit-content;
-}
-.question-wrapper a > div {
-  padding: 0em .5em;
+  padding: 1em 0 1em 2em;
+  margin-left: 0em;
+  border-left: 1px solid rgba(0,0,0,.125);
 }
 .navigation-wrapper,
 .user-info-wrapper {
@@ -80,7 +80,7 @@ h1 {
 .App-header .user-info-container p {
   margin: auto;
 }
-.tabs-wrapper {
+.content {
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
@@ -97,4 +97,37 @@ h1 {
 }
 .list-group button:first-of-type {
   border-top: none;
+}
+.question-details-container {
+  display: flex;
+  padding: 2em 1.5em;
+  background: #f8f9fa;
+  border-radius: 1em;
+  border: 1px solid rgba(0,0,0,.125);
+}
+.question-details-form h2 {
+  margin-bottom: .5em;
+}
+.form-check-input {
+  margin-top: .6rem;
+}
+.question-details-container .user-info-container {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.results-data {
+  padding: 1em;
+}
+.results-data.selected {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+  border-radius: 1em;
+  border: 1px solid;
+}
+.list-group > p {
+  text-align: center;
+  padding: 2em;
 }
