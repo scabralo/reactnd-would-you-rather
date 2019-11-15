@@ -57,6 +57,12 @@ class QuestionDetails extends Component {
     const { author, optionOne, optionTwo } = question
     const { selected } = this.state
 
+    const optionOneVotesCount = question.optionOne.votes.length
+    const optionTwoVotesCount = question.optionTwo.votes.length
+    const totalVotes = optionOneVotesCount + optionTwoVotesCount
+
+    const previousAnswer = users[authedUser].answers[question.id]
+
     return (
       <div className='question-details-container'>
         <UserInfo 
