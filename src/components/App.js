@@ -21,12 +21,12 @@ class App extends Component {
           <Header />
           {this.props.loading === true 
             ? null
-            : <Fragment>
+            : <div className='content'>
                 <Route path='/' exact component={Home} />
                 <Route path='/login' component={Login} />
                 <Route path='/add' component={AddQuestion} />
                 <Route path='/questions/:id' component={QuestionDetails} />
-              </Fragment> }
+              </div> }
         </div>
       </Router>
     )
