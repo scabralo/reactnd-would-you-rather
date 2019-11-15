@@ -1,4 +1,5 @@
 import { saveQuestionAnswer } from '../utils/api'
+import { userResponse } from './users'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const RESPOND_QUESTION = 'RESPOND_QUESTION'
@@ -22,8 +23,9 @@ export function handleRespondQuestion (qId, answer) {
     return saveQuestionAnswer({
       authedUser, qId, answer
     })
-      .then((question) => {
-        dispatch(respondQuestion(question))
+      .then((resp) => {
+        dispatch(respondQuestion(resp.question))
+        dispatch(userResponse(resp.user))
       })
   }
 }
