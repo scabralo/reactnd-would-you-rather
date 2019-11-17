@@ -18,6 +18,13 @@ export default function users (state = {}, action) {
             ...action.question,
         }
       }
+    case ADD_QUESTION :
+      return {
+        ...state,
+        [action.question.id]: {
+          ...action.question
+        }
+      }
     default :
       return state
   }
