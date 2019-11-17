@@ -14,9 +14,9 @@ export function userResponse (user) {
     user
   }
 }
-export function addUserQuestion (user) {
+export function addUserQuestion (question) {
   return {
     type: ADD_USER_QUESTION,
-    user
+    question
   }
 }
