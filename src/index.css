@@ -28,6 +28,7 @@ h1 {
   max-width: 5em;
   margin-top: 1em;
 }
+.leader-board-wrapper .list-group-item,
 .question-wrapper a {
   display: flex;
   align-items: center;
