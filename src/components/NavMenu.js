@@ -36,12 +36,6 @@ class NavMenu extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        {/* <div className='navigation-wrapper'>
-          <ul>
-            <li><Link to={authedUser ? '/' : '#' }>Home</Link></li>
-            <li><Link to={authedUser ? '/add' : '#'}>Add Question</Link></li>
-          </ul>
-        </div> */}
         {authedUser && (
           <div className='user-info-wrapper'>
           <UserInfo avatarURL={user.avatarURL} authorName={authedUser} />
