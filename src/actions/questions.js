@@ -30,3 +30,9 @@ export function handleRespondQuestion (qId, answer) {
       })
   }
 }
+function addQuestion (question) {
+  return {
+    type: ADD_QUESTION,
+    question
+  }
+}
