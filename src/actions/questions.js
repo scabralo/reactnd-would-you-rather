@@ -1,5 +1,5 @@
-import { saveQuestionAnswer } from '../utils/api'
-import { userResponse } from './users'
+import { saveQuestionAnswer, saveQuestion } from '../utils/api'
+import { userResponse, addUserQuestion } from './users'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const RESPOND_QUESTION = 'RESPOND_QUESTION'
