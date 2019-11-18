@@ -21,10 +21,12 @@ class Login extends Component {
     this.props.dispatch(setAuthedUser(userId))
   }
   render() {
-    const { authedUser } = this.props
+    const { authedUser, location } = this.props
     const { userId } =  this.state
+    const redirectTo = location.state.goBackTo ? location.state.goBackTo : '/'
 
-    if(authedUser) return <Redirect to='/' />
+    // Check whether goBackTo is a thing, and if it is redirect to that Location
+    if(authedUser) return <Redirect to={redirectTo} />
 
     return (
       <div>

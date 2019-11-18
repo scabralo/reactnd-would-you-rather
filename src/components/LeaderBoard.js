@@ -6,10 +6,13 @@ import UserInfo from './UserInfo'
 
 class LeaderBoard extends Component {
   render() {
-    const { authedUser, userIds, users } = this.props
+    const { authedUser, userIds, users, location } = this.props
     
     if(!authedUser) {
-      return <Redirect to='/login' />
+      return <Redirect to={{
+        pathname: '/login',
+        state: { goBackTo: location.pathname}
+      }} />
     }
 
     return (

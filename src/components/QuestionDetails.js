@@ -37,11 +37,14 @@ class QuestionDetails extends Component {
   }
 
   render() {
-    const { authedUser } = this.props
+    const { authedUser, location } = this.props
     const { refresh } = this.state
     
     if(!authedUser) {
-      return <Redirect to='/login' />
+      return <Redirect to={{
+        pathname: '/login',
+        state: { goBackTo: location.pathname}
+      }} />
     }
     if(refresh) {
       return <Redirect to='/' />
@@ -49,8 +52,8 @@ class QuestionDetails extends Component {
 
     const { question } = this.props
 
-    if (question === null) {
-      return <p>This Question doesn't exist</p>
+    if (!question.id) {
+      return <Redirect to='/not-found' />
     }
 
     const { users, answered } = this.props

@@ -29,12 +29,14 @@ class AddQuestion extends Component {
     })
   }
   render() {
-    const { authedUser } = this.props
+    const { authedUser, location } = this.props
     const { optionOneText, optionTwoText, toHome } = this.state
 
-    // console.log('State: ', this.state)
     if(!authedUser) {
-      return <Redirect to='/login' />
+      return <Redirect to={{
+        pathname: '/login',
+        state: { goBackTo: location.pathname}
+      }} />
     }
     if(toHome) {
       return <Redirect to='/' />

@@ -8,10 +8,13 @@ class Home extends Component {
   
 
   render() {
-    const { questions, questionIds, users, authedUser } = this.props
+    const { questions, questionIds, users, authedUser, location } = this.props
 
     if(!authedUser) {
-      return <Redirect to='/login' />
+      return <Redirect to={{
+        pathname: '/login',
+        state: { goBackTo: location.pathname}
+      }} />
     }
 
     if(questions === null) {
