@@ -53,7 +53,7 @@ class AddQuestion extends Component {
             <Form.Control id='optionTwoText' as='input' defaultValue='Second Option' placeholder='Second Option' />
           </Form.Group>
           <Button variant="primary" type="submit" disabled={ optionOneText === '' || optionTwoText === '' }>
-            Submit Response
+            Submit Question
           </Button>
         </Form>
       </div>
